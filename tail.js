@@ -1,13 +1,12 @@
 // FUNCTION IMPLEMENTATION
-const assertEqual = function(actual, expected) {
+const assertEqual = function (actual, expected) {
   if (actual === expected)
     console.log(`✅ Assertion Passed: [${actual}] === [${expected}] ✅`);
   else console.log(`❌ Assertion Failed: [${actual}] !== [${expected}] ❌`);
 };
 
 const tail = (arr) => {
-  let newArr = [...arr];
-  return newArr.splice(1) || [];
+  return arr.slice(1) || [];
 };
 
 // Test Cases:
@@ -43,3 +42,11 @@ let arr = [];
 result = tail(arr);
 assertEqual(arr.length, 0); // original array
 assertEqual(result.length, 0);
+
+const words1 = ["Yo Yo"];
+tail(words1);
+assertEqual(words1.length, 1);
+
+const words0 = [];
+tail(words0);
+assertEqual(words0.length, 0);
