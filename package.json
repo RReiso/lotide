@@ -1,7 +1,7 @@
 {
-  "name": "lotide",
+  "name": "@rreiso/lotide",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mini clone of lodash library",
   "main": "assertArraysEqual.js",
   "directories": {
     "test": "test"
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/RReiso/lotied.git"
   },
-  "author": "Ruta R",
+  "author": "rreiso",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/RReiso/lotied/issues"
