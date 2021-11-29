@@ -1,43 +1,28 @@
 const tail = require('../tail');
-const assertEqual = require('../assertEqual');
+const assert = require('chai').assert;
 
-let words = ["Yo Yo", "Lighthouse", "Labs"];
-let result = tail(words);
-assertEqual(words.length, 3); // original array  // should PASS
-assertEqual(result.length, 2); // should PASS
-assertEqual(result[0], "Lighthouse"); // should PASS
-assertEqual(result[1], "Labs"); // should PASS
+describe("#tail", () => {
+  it("returns ['Lighthouse', 'Labs'] for ['Yo Yo', 'Lighthouse', 'Labs']", () => {
+    assert.deepEqual(tail(['Yo Yo', 'Lighthouse', 'Labs']), ['Lighthouse', 'Labs']);
+  });
 
-words = ["Hello", "Lighthouse", "Labs", "haha"];
-result = tail(words);
-assertEqual(words.length, 4); // original array // should PASS
-assertEqual(result.length, 3); // should PASS
-assertEqual(result[0], "Lighthouse"); // should PASS
-assertEqual(result[1], "Labs"); // should PASS
-assertEqual(result[2], "haha"); // should PASS
+  it("returns [2, 3, 4] for [1, 2, 3, 4]", () => {
+    assert.deepEqual(tail([1, 2, 3, 4]), [2, 3, 4]);
+  });
 
-let nums = [1, 2, 3, 4];
-result = tail(nums);
-assertEqual(nums.length, 4); // original array // should PASS
-assertEqual(result.length, 3); // should PASS
-assertEqual(result[0], 2); // should PASS
-assertEqual(result[1], 3); // should PASS
-assertEqual(result[2], 4); // should PASS
+  it("returns ['Lighthouse', 'Labs', 'haha'] for ['Hello', 'Lighthouse', 'Labs', 'haha']", () => {
+    assert.deepEqual(tail(['Hello', 'Lighthouse', 'Labs', 'haha']), ['Lighthouse', 'Labs', 'haha']);
+  });
 
-nums = [5];
-result = tail(nums);
-assertEqual(nums.length, 1); // original array // should PASS
-assertEqual(result.length, 0); // should PASS
+  it("returns [] for [5]", () => {
+    assert.deepEqual(tail([5]), []);
+  });
 
-let arr = [];
-result = tail(arr);
-assertEqual(arr.length, 0); // original array // should PASS
-assertEqual(result.length, 0); // should PASS
+  it("returns [] for []", () => {
+    assert.deepEqual(tail([]), []);
+  });
 
-const words1 = ["Yo Yo"];
-tail(words1);
-assertEqual(words1.length, 1); // should PASS
-
-const words0 = [];
-tail(words0);
-assertEqual(words0.length, 0); // should PASS
+  it("returns [] for ['Yo Yo']", () => {
+    assert.deepEqual(tail(['Yo Yo']), []);
+  });
+});
